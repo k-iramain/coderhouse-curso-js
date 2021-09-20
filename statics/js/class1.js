@@ -10,7 +10,8 @@ function classNumber1() {
     let fechaNacimiento = new Date(year, mesNacimiento - 1, diaNacimiento);
     let now = new Date();
     let edad = year - anioNacimiento;
-
+    console.log(fechaNacimiento);
+    console.log(now)
     if (fechaNacimiento > now) {
         edad = edad - 1;
 
