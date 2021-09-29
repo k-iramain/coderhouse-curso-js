@@ -153,3 +153,48 @@ function calcularCuotas(importeAPrestar) {
     };
     return cuotas
 };
+
+
+
+//clase 4 complementario funciones 
+
+function facturaDeLuz() {
+    //ingresar datos para determinar el consumo
+    let datos = datosUsuario();
+    console.log(datos)
+        //calcular el valor de consumo
+    let valor = valorConsumo(datos.lectura_actual, datos.ultima_lectura);
+    console.log(valor)
+        //mostrar importe final 
+    let importeFinal = mostrarImporteFinal(datos, valor);
+    console.log(importeFinal);
+    alert(importeFinal)
+};
+
+function datosUsuario() {
+    let nombreCompleto = prompt("ingrese nombre del usuario");
+    let numeroDeCuenta = prompt("Ingrese numero de cuenta");
+    let ultimaLectura = prompt("ingrese ultima lectura del medidor");
+    let lecturaActual = prompt("Ingrese lectura actual")
+
+    return {
+        name: nombreCompleto,
+        cuenta: numeroDeCuenta,
+        ultima_lectura: ultimaLectura,
+        lectura_actual: lecturaActual
+
+    };
+};
+
+function valorConsumo(lecturaActual, ultimaLectura) {
+    const montoFijo = 3000;
+    const precioKW = 100;
+    let monto = montoFijo + ((lecturaActual - ultimaLectura) * precioKW);
+
+    return monto;
+}
+
+function mostrarImporteFinal(datos, importeFinal) {
+    let mensaje = "Hola " + datos.name + " tu importe total es: $" + importeFinal;
+    return mensaje;
+}
