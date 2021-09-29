@@ -88,3 +88,68 @@ function classNumber3() {
 
 
 };
+
+
+// Clase 4
+
+function simularPrestamo() {
+    // pedir datos al usuario
+    let datos = ingresarDatosDelUsuario();
+    console.log(datos)
+        //verificar si se puede otorgar credito
+    let esApto = esAptoCredito(datos.sueldo);
+    console.log(esApto);
+    if (esApto) {
+        //valor de importe a prestar
+        let importeAPrestar = importeMaximoAPrestar(datos.sueldo);
+        //calcular el interes en base a las cuotas 3-6-12
+        let valorCuotas = calcularCuotas(importeAPrestar);
+        console.log(valorCuotas);
+        //mostramos mensaje con datos en pantalla 
+        let mensajeFinal = "Hola " + datos.name + " DNI " + datos.dni + " El monto maximo que podemos otorgarte es de: $" + importeAPrestar + valorCuotas;
+
+        alert(mensajeFinal);
+    } else {
+        alert("lo sentimos en este momento no podemos otorgarte el credito");
+    }
+
+};
+
+function ingresarDatosDelUsuario() {
+    let nombreCompleto = prompt("Ingresar nombre completo");
+    let DNI = prompt("Ingrese numero sin puntos ");
+    let sueldo = prompt("Ingresa sueldo bruto ");
+    return {
+        name: nombreCompleto,
+        dni: DNI,
+        sueldo: sueldo
+    }
+};
+
+function esAptoCredito(sueldo) {
+    const sueldoMinimo = 50000;
+    return sueldo >= sueldoMinimo
+
+};
+
+function importeMaximoAPrestar(sueldo) {
+    return sueldo * 3;
+
+};
+
+function calcularCuotas(importeAPrestar) {
+    const valorCuotas = {
+        3: 1.50,
+        6: 1.70,
+        12: 2.00
+    };
+
+    let cuotas = ""
+    for (let i = 1; i <= 12; i++) {
+        let cuota = valorCuotas[i];
+        if (cuota) {
+            cuotas = cuotas + "\nsi lo pagas en " + i + " cuotas pagas: " + importeAPrestar * cuota;
+        }
+    };
+    return cuotas
+};
