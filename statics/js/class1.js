@@ -325,3 +325,30 @@ function classNumber6() {
 }
 
 
+//clase seis complementario
+
+class CreditoConArrayOrdenado extends CreditoConArray {
+    constructor(usuario, sueldoMinimo, cuotas) {
+        super(usuario, sueldoMinimo, cuotas);
+        this.cuotas.sort(
+            function(a, b) {
+                return a.cuota - b.cuota 
+            }
+        )
+        
+
+    }
+   
+}
+
+function classNumber6c() {
+    let cuotas = [new Cuota(6, 1.50), new Cuota(12, 1.70), new Cuota(3, 1.30), new Cuota(18, 2.00)];
+    const sueldoMinimo = 50000;
+    let usuario = new Usuario("", "", "");
+    usuario.ingresarDatos();
+
+    let credito = new CreditoConArrayOrdenado(usuario, sueldoMinimo, cuotas);
+    credito.calcularCuotas();
+
+}
+
