@@ -209,7 +209,7 @@ class Usuario {
         this.sueldo = sueldo;
     }
 
-    ingresarDatos(){
+    ingresarDatos() {
         this.nombreCompleto = "";
         while (this.nombreCompleto === "") {
             this.nombreCompleto = prompt("ingresa aqui nombre completo");
@@ -222,7 +222,7 @@ class Usuario {
         while (this.sueldo === "") {
             this.sueldo = prompt("ingrese su sueldo bruto mensual");
         };
-    
+
     }
 }
 
@@ -245,7 +245,7 @@ class Credito {
         this.cuota6 = cuota6;
         this.cuota12 = cuota12;
     }
-    
+
     esAptoCredito() {
         return this.sueldoMinimo <= this.usuario.sueldo;
     }
@@ -253,9 +253,9 @@ class Credito {
     montoMaximoAPrestar() {
         return this.usuario.sueldo * 3;
     }
-    
+
     mensajeFinal(importeFinal) {
-        let mensaje = "Hola " + this.usuario.nombreCompleto + " DNI: " +  this.usuario.DNI + " tu importe final es: $" + importeFinal;
+        let mensaje = "Hola " + this.usuario.nombreCompleto + " DNI: " + this.usuario.DNI + " tu importe final es: $" + importeFinal;
         mensaje = mensaje + "\nsi lo sacas en " + this.cuota3.cuota + " cuotas pagas: " + this.cuota3.calcularCuota(importeFinal);
         mensaje = mensaje + "\nsi lo sacas en " + this.cuota6.cuota + " cuotas pagas: " + this.cuota6.calcularCuota(importeFinal);
         mensaje = mensaje + "\nsi lo sacas en " + this.cuota12.cuota + " cuotas pagas: " + this.cuota12.calcularCuota(importeFinal);
@@ -267,8 +267,8 @@ class Credito {
         if (esApto) {
             let montoMaximoAPrestar = this.montoMaximoAPrestar();
             this.mensajeFinal(montoMaximoAPrestar);
-        
-        }else {
+
+        } else {
             alert("Lo sentimos no es apto para otorgarle el credito");
         }
     }
