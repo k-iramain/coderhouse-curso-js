@@ -289,3 +289,39 @@ function classNumber5() {
     credito.calcularCuotas();
 
 }
+
+
+
+//clase 6 Array
+
+class CreditoConArray extends Credito {
+    constructor(usuario, sueldoMinimo, cuotas) {
+        super(usuario, sueldoMinimo, cuotas[0], cuotas[1], cuotas[2])
+        this.cuotas = cuotas;
+    }
+
+    mensajeFinal(importeFinal) {
+        let mensaje = "Hola " + this.usuario.nombreCompleto + " DNI: " + this.usuario.DNI + " tu importe final es: $" + importeFinal;
+        this.cuotas.forEach(
+            element => {
+                mensaje = mensaje + "\nsi lo sacas en " + element.cuota + " cuotas pagas: " + element.calcularCuota(importeFinal);
+            }
+        );
+        alert(mensaje);
+    }
+
+
+}
+
+function classNumber6() {
+    let cuotas = [new Cuota(3, 1.50), new Cuota(6, 1.70), new Cuota(12, 2.0)];
+    const sueldoMinimo = 50000;
+    let usuario = new Usuario("", "", "");
+    usuario.ingresarDatos();
+
+    let credito = new CreditoConArray(usuario, sueldoMinimo, cuotas);
+    credito.calcularCuotas();
+
+}
+
+
