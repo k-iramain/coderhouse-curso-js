@@ -62,4 +62,4 @@ $("#boton").click(function (event) {
   event.preventDefault();
   $("#simular").fadeOut(2000);
   $("#contenedor-form").fadeIn(1000).show();
-})
+});
