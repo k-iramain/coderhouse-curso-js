@@ -55,23 +55,11 @@ $(document).ready(function () {
     }
 
   });
-  
+
 });
 
-$("#boton").click(function(event){
+$("#boton").click(function (event) {
   event.preventDefault();
-  $("#contenedor-form").fadeIn(1000).show(); 
-  $("#simular").hide();
-
-
+  $("#simular").fadeOut(2000);
+  $("#contenedor-form").fadeIn(1000).show();
 })
-
-
-
-
-
-
-
-
-
-
