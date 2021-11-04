@@ -1,3 +1,39 @@
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("formulario").addEventListener('submit', simulador);
+});
+
+const veraz = {
+  36079981: {
+      "estado_bcra": 4,
+      "prestamo_vigente": true
+  },
+  31767890: {
+      "estado_bcra": 1,
+      "prestamo_vigente": false
+  },
+  33660132: {
+      "estado_bcra": 1,
+      "prestamo_vigente": false
+  },
+  33050132: {
+      "estado_bcra": 1,
+      "prestamo_vigente":true
+  },
+  30600032: {
+      "estado_bcra": 1,
+      "prestamo_vigente": false
+  },
+  31180102: {
+      "estado_bcra": 1,
+      "prestamo_vigente": false
+  },
+
+}
+
+let localStorage = window.localStorage;
+
+localStorage.setItem("veraz", JSON.stringify(veraz));
+
 $(document).ready(function () {
   $("#contenedor-form").hide();
   $("#formulario").validate({
